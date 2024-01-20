@@ -1,7 +1,8 @@
 import Navbar from "./components/header/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import Container from 'react-bootstrap/Container';
-import CategoriesBar from "./components/categoriesbar/CategoriesBar";
+import Homescreen from "./screens/homescreens/homescreen";
+
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <Navbar/>
       <div>
         <Sidebar/>
-        <Container >
-        <CategoriesBar/>
+        <Container fluid>
+        <Homescreen/>
         </Container>
 
       </div>
