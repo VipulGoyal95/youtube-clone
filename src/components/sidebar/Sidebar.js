@@ -3,7 +3,7 @@ import "./sidebar.scss";
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className="sidebar border border-dark">
       sidebar
     </div>
   )

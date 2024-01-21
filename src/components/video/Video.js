@@ -1,8 +1,9 @@
 import React from 'react'
+import "./video.scss";
 
 const Video = () => {
   return (
-    <div>
+    <div className="video-container">
       video
     </div>
   )
