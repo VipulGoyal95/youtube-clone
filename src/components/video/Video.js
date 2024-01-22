@@ -4,7 +4,9 @@ import "./video.scss";
 const Video = () => {
   return (
     <div className="video-container">
-      video
+      <div className="video">
+        video
+      </div>
     </div>
   )
 }

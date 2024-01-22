@@ -5,10 +5,11 @@ import { FaBars } from "react-icons/fa";
 import { MdApps } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import icon from "./youtube-icon.png";
-const Navbar = () => {
+const Navbar = (props) => {
+  
   return (
     <div className="header border border-dark">
-     <FaBars className="header -menu" size={20}/>
+     <FaBars className="header -menu" size={20} onClick={props.setSidebar} />
      <img src={icon} className="header -icon" alt=""/>
 
      <form>

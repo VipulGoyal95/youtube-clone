@@ -7,7 +7,6 @@
     height: 11vh;
     width: 100%;
     padding-bottom: 5px;
-
     .-menu{
         display: none;
     }
@@ -49,16 +48,25 @@
     }
 
     .nav-icons{
-        flex: 0.25;
+        flex: 0.20;
         display: flex;
         // width: 250px;
         justify-content: space-around;
         align-items: center;
         margin-right: 5px;
 
-        width: 300px;
+        // width: 300px;
         .icon{
             cursor:pointer;
+            width: 40px;
+            height: 40px;
+            padding: 6px;
+            border-radius: 50%;
+            margin: 2px;
+
+            &:hover{
+                background-color: #2d3035;
+            }
         }
 
         .avatar-icon{
@@ -92,6 +100,7 @@
         .-menu{
             display: inline;
             width: 70px;
+            cursor: pointer;
         }
         .nav-icons > *:not(img){
             display: none;
