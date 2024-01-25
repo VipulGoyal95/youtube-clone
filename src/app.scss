@@ -1,11 +1,12 @@
 @import "./index.scss";
+
 .app-container{
     display: flex;
     height: 90vh;
 }
 
 .main-container{
-    width: 84%;
+    overflow-y: scroll;
 }
 
 @media (max-width:$breakpoint-medium){

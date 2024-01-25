@@ -18,7 +18,6 @@ function App() {
         <div className="main-container">
         <Homescreen/>
         </div>
-
       </div>
       
     </>

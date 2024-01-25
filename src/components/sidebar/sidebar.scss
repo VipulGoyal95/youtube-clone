@@ -11,6 +11,7 @@
     position: sticky;
     top: 11vh;
     left: 0;
+    z-index: 2000;
     li{
         display: flex;
         list-style: none;
@@ -48,7 +49,7 @@
 @media (max-width: $breakpoint-medium){
     .sidebar{
         width: 115px;
-
+        z-index: 2000;
         li{
             justify-content: center;
             margin-top: 15px;
@@ -64,7 +65,7 @@
 @media (max-width: $breakpoint-small){
     .sidebar{
         transform: translateX(-100%);
-
+        z-index: 2000;
         position: fixed;
         z-index: 999;
     }
