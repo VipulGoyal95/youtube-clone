@@ -3,11 +3,14 @@
 .sidebar{
     background-color: $background-secondary;
     width: 250px;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     padding: 1rem;
     transition: transform 0.2s ease-in;
-    height: 90vh;
+    position: sticky;
+    top: 11vh;
+    left: 0;
     li{
         display: flex;
         list-style: none;

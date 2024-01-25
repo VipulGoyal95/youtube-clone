@@ -1,8 +1,21 @@
+@import "./index.scss";
 .app-container{
     display: flex;
     height: 90vh;
 }
 
 .main-container{
-    width: 90%;
+    width: 84%;
+}
+
+@media (max-width:$breakpoint-medium){
+    .main-container{
+        width: 90%;
+    }
+}
+
+@media (max-width:$breakpoint-small){
+    .main-container{
+        width: 100%;
+    }
 }

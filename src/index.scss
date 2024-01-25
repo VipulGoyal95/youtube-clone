@@ -15,7 +15,12 @@ $breakpoint-small: 520px;
 
 body{
     background-color: $background-primary;
+    background-attachment: fixed;
     color: $text-color;
     font-family: "Montserrat","sans-serif";
     font-weight: 600;
 }
+
+// ::-webkit-scrollbar{
+//     width: 0px;
+// }

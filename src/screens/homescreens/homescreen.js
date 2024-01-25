@@ -7,12 +7,12 @@ import Col from 'react-bootstrap/Col';
 import "./homescreen.scss";
 const Homescreen = () => {
   return (
-    <Container fluid="sm" className="outer-container border border-info">
+    <Container fluid="md" className="outer-container">
         <CategoriesBar/>
-        <Row className="border border-warning" lg={3}>
+        <Row>
         {
             [...new Array(20)].map(()=>
-            (<Col lg={3} md={3} className="video border border-danger">
+            (<Col lg={4} md={3} className="video">
             <Video/>
             </Col>)
         )}

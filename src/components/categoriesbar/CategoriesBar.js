@@ -21,6 +21,14 @@ const category=[
   'python',
   'flask',
   'django',
+  'godndjd',
+  'django',
+  'dkdkcm',
+  'django',
+  'passport',
+  'login',
+  'passport-mongoose',
+  'jwt',
 ]
 
 const CategoriesBar = () => {
