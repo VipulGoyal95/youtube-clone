@@ -1,26 +1,19 @@
-import Navbar from "./components/header/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
 // import Container from 'react-bootstrap/Container';
-import Homescreen from "./screens/homescreens/homescreen";
+import Login from "./screens/login/login"
 import "./app.scss";
-import { useState } from "react";
+import { BrowserRouter,Route,Routes,Navigate} from "react-router-dom";
+import Layout from "./layout";
+import Homescreen from "./screens/homescreens/homescreen";
 
 function App() {
-  const [showSidebar, setSidebar]= useState(false);
-  const handletoggle =()=>{
-    setSidebar(!showSidebar);
-  }
-  return (
-    <>
-      <Navbar setSidebar={handletoggle}/>
-      <div className="app-container">
-        <Sidebar showsidebar={showSidebar} setSidebar={handletoggle} />
-        <div className="main-container">
-        <Homescreen/>
-        </div>
-      </div>
-      
-    </>
+  return (  
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout Screen={<Homescreen/>}/>} />
+        <Route path="/auth" element={<Login/>} />
+        <Route path="*" element={<Navigate to="/"/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
