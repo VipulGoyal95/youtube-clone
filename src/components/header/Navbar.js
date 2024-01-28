@@ -5,7 +5,11 @@ import { FaBars } from "react-icons/fa";
 import { MdApps } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import icon from "./youtube-icon.png";
+import { useSelector } from 'react-redux';
+
 const Navbar = (props) => {
+  
+  const profilephoto = useSelector(state=> state.user.user.photoURL);
   
   return (
     <div className="header border border-dark">
@@ -22,7 +26,7 @@ const Navbar = (props) => {
      <div className="nav-icons">
       <IoIosNotifications size={24} className="icon"/>
       <MdApps size={24} className="icon" />
-      <img src="https://w7.pngwing.com/pngs/87/237/png-transparent-male-avatar-boy-face-man-user-flat-classy-users-icon.png" alt="" className="avatar-icon" />
+      <img src={profilephoto} alt="" className="avatar-icon" />
      </div>
     </div>
   )
