@@ -31,12 +31,14 @@ export const loginuser = createAsyncThunk("loginuser", async()=>{
     }
 }) 
 
+
 export const logoutuser =()=> async(dispatch)=>{
     await auth.signOut();
     dispatch(logout());
     sessionStorage.removeItem("yt-access-token");
     sessionStorage.removeItem("yt-user");
 }
+
 
 export const userSlice = createSlice({
     name: "user",

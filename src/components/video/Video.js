@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import "./video.scss";
+import request from '../../api';
 
-const Video = () => {
+const Video = ({videos}) => {
+  const [views,setViews]=useState(null);
+  const [duration,setDuration] = useState(null);
+
+  useEffect(()=>{
+    const getVideoDetails = async()=>{
+      try { 
+          const {data:{items}} = await request.get("/videos",{
+            params:{
+              part:"contentDetails,statistics",
+              id:videos.id
+            }
+          })
+          
+          setViews(items.statistics.viewCount);
+          setDuration(items.contentDetails.duration);
+          console.log(items);
+      } catch (error) {
+        
+      }
+    }
+
+    getVideoDetails();
+  },[videos.id])
+
   return (
     <div className="video-container">
       <div className="top">
-        <img src="https://i.ytimg.com/vi/QGfn7JeXK54/hq720.jpg?sqp=-…AFwAcABBg==&rs=AOn4CLAM3M1_GRib3r_ZruTWP50IvguM2g" alt="thumbnail"/>
+        <img src={videos.snippet.thumbnails.medium.url} alt="thumbnail"/>
         <span>43:23</span>
       </div>
       <div className="bottom">
@@ -13,13 +38,13 @@ const Video = () => {
           <img src="https://yt3.ggpht.com/ytc/AIf8zZTrgnjr_yPdUVQUOGEIAuZ8tc4oP7DlR-_aR1rO=s68-c-k-c0x00ffffff-no-rj" alt="logo"/>
         </div>
         <div className="right">
-          <span className="title">Counts subset with sum k|Dp on Subsequences<br></br></span>
+          <span className="title">{videos.snippet.title}<br></br></span>
           <span className="channelname">
-            take u forward
+            {videos.snippet.channelTitle}
           </span>
           <div className="bottom-most">
             <span>
-              144k views •
+             {views? parseInt(views)/1000+"k views":"views"} •
             </span>
             <span>
               1 year ago

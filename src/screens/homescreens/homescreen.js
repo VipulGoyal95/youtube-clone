@@ -5,15 +5,17 @@ import Video from "../../components/video/Video";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./homescreen.scss";
+import { useSelector } from 'react-redux';
 const Homescreen = () => {
+  const video = useSelector(state=> state.video.videos);
   return (
     <Container fluid className="outer-container">
         <CategoriesBar/>
         <Row>
         {
-            [...new Array(20)].map((id)=>
-            (<Col lg={4} md={6} sm={6} className="video" key={id}>
-            <Video key={id} />
+            video.map((video)=>
+            (<Col lg={4} md={6} sm={6} className="video" key={video.id}>
+            <Video videos={video} />
             </Col>)
         )}
         </Row>
