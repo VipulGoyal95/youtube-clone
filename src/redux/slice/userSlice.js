@@ -24,22 +24,27 @@ export const loginuser = createAsyncThunk("loginuser", async()=>{
             email: res.user.email,
             photoURL: res.user.photoURL
         }
-        sessionStorage.setItem("yt-user",profile);
+        sessionStorage.setItem("yt-user",JSON.stringify(profile));
         return res;
     }catch(err){
         console.log(err);
     }
 }) 
 
+export const logoutuser =()=> async(dispatch)=>{
+    await auth.signOut();
+    dispatch(logout());
+    sessionStorage.removeItem("yt-access-token");
+    sessionStorage.removeItem("yt-user");
+}
 
 export const userSlice = createSlice({
     name: "user",
     initialState: {
-        user:sessionStorage.getItem("user")?sessionStorage.getItem("user"):null,
-        accessToken:sessionStorage.getItem("access_token")?sessionStorage.getItem("access_token"):null,
+        user:sessionStorage.getItem("yt-user")? JSON.parse(sessionStorage.getItem("yt-user")):null,
+        accessToken:sessionStorage.getItem("yt-access-token")?sessionStorage.getItem("yt-access-token"):null,
         loading: false
     },
-    
     reducers: {
         login_request:(state)=>{
             state.loading = true
@@ -49,6 +54,11 @@ export const userSlice = createSlice({
             state.loading = false
             state.accessToken = action.payload
             console.log("after", current(state));
+        },
+        logout:(state)=>{
+            state.accessToken = null
+            state.user = null
+            state.loading=false
         },
         // login_failure:(state,action)=>{
         //     state.loading = false
@@ -79,6 +89,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const {login_failure, login_success,login_request ,load_profile} = userSlice.actions;
+export const {login_failure, login_success,login_request ,load_profile,logout} = userSlice.actions;
 
 export default userSlice.reducer;

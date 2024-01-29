@@ -8,8 +8,8 @@ import icon from "./youtube-icon.png";
 import { useSelector } from 'react-redux';
 
 const Navbar = (props) => {
-  
-  const profilephoto = useSelector(state=> state.user.user.photoURL);
+
+  const profile = useSelector(state=> state.user.user);
   
   return (
     <div className="header border border-dark">
@@ -26,7 +26,7 @@ const Navbar = (props) => {
      <div className="nav-icons">
       <IoIosNotifications size={24} className="icon"/>
       <MdApps size={24} className="icon" />
-      <img src={profilephoto} alt="" className="avatar-icon" />
+      <img src={profile? profile.photoURL : ""} alt="" className="avatar-icon" />
      </div>
     </div>
   )

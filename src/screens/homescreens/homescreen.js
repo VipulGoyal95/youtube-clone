@@ -11,9 +11,9 @@ const Homescreen = () => {
         <CategoriesBar/>
         <Row>
         {
-            [...new Array(20)].map(()=>
-            (<Col lg={4} md={6} sm={6} className="video">
-            <Video/>
+            [...new Array(20)].map((id)=>
+            (<Col lg={4} md={6} sm={6} className="video" key={id}>
+            <Video key={id} />
             </Col>)
         )}
         </Row>

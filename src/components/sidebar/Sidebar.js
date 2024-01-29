@@ -7,9 +7,14 @@ import { FaClockRotateLeft } from "react-icons/fa6";
 import { MdSentimentDissatisfied } from "react-icons/md";
 import { MdLibraryBooks } from "react-icons/md";
 import { MdExitToApp } from "react-icons/md";
+import { useDispatch } from 'react-redux';
+import { logoutuser } from '../../redux/slice/userSlice';
 
 const Sidebar = (props) => {
-  console.log(props.showsidebar);
+  const dispatch = useDispatch();
+  const handlelogout=()=>{
+    dispatch(logoutuser());
+  }
   return (
     <nav className={"sidebar"+(props.showsidebar?" hidebar":"")}>
       <li>
@@ -43,7 +48,7 @@ const Sidebar = (props) => {
       </li>
 
       <hr />
-      <li>
+      <li onClick={handlelogout}>
         <MdExitToApp size={23} />
         <h6>Logout</h6>      
       </li>

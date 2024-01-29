@@ -1,19 +1,31 @@
 // import Container from 'react-bootstrap/Container';
 import Login from "./screens/login/login"
 import "./app.scss";
-import { BrowserRouter,Route,Routes,Navigate} from "react-router-dom";
-import Layout from "./layout";
+import { Route,Routes,Navigate, useNavigate} from "react-router-dom";
 import Homescreen from "./screens/homescreens/homescreen";
+import { useDispatch, useSelector } from "react-redux";
+import {useEffect } from "react";
+import Layout from "./layout"; 
+import { getPopularvideo } from "./redux/slice/videoSlice";
+
 
 function App() {
+  const {accessToken,loading} =useSelector(state=>state.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  dispatch(getPopularvideo());
+  
+  useEffect(()=>{
+    if(!accessToken && !loading){
+      navigate("/auth");
+    }
+  },[accessToken,loading,navigate]);
   return (  
-    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout Screen={<Homescreen/>}/>} />
+        <Route path="/" element={<Layout Screen={<Homescreen />}/>} />
         <Route path="/auth" element={<Login/>} />
         <Route path="*" element={<Navigate to="/"/>}/>
       </Routes>
-    </BrowserRouter>
   );
 }
 
