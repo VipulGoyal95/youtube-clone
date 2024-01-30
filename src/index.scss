@@ -25,3 +25,10 @@ body{
     width: 0px;
     scrollbar-width: 2px;
 }
+
+@mixin line-clamp($number) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $number;
+    -webkit-box-orient: vertical;
+ }
