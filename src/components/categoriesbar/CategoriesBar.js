@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import "./categoriesbar.scss";
+import { useDispatch } from 'react-redux';
+import { getPopularvideo, getsearchVideo } from '../../redux/slice/videoSlice';
 
 const category=[
+  'All',
   'react',
   'reactjs',
   'angular',
@@ -33,11 +36,22 @@ const category=[
 
 const CategoriesBar = () => {
   const [activeElement,setActivelement] =useState("All");
-  // console.log(activeElement);
+  console.log(activeElement);
+  const dispatch = useDispatch();
+  const handleclick=(value)=>{
+    setActivelement(value);
+    if(value==="All"){
+      dispatch(getPopularvideo());
+    }
+    else{
+      dispatch(getsearchVideo(value));
+    }
+  }
+
   return (
     <div className="categories-bar">
       {category.map((value,i)=>(
-        <span key={i} className={activeElement.value === value?"active":""} onClick={()=>setActivelement({value})}>{value}</span>
+        <span key={i} className={activeElement === value?"active":""} onClick={()=>handleclick(value)}>{value}</span>
       ))}
     </div>
   )

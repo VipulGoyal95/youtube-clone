@@ -11,13 +11,16 @@ const Video = ({videos}) => {
   const seconds=moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds*1000).format("mm:ss");
   const channelid = videos.snippet.channelId;
+
+  const _videoid = typeof videos.id==='object' && videos.id?videos.id.videoId: (videos.id);
+
   useEffect(()=>{
     const getVideoDetails = async()=>{
       try { 
           const {data:{items}} = await request.get("/videos",{
             params:{
               part:"contentDetails,statistics",
-              id:videos.id
+              id:_videoid
             }
           })
           // console.log(items[0].statistics);
@@ -30,7 +33,7 @@ const Video = ({videos}) => {
     }
 
     getVideoDetails();
-  },[videos.id])
+  },[_videoid])
 
 
   useEffect(()=>{
@@ -61,7 +64,7 @@ const Video = ({videos}) => {
       </div>
       <div className="bottom">
         <div className="channel-logo">
-          <img src={channellogo.url?channellogo.url:""} alt="logo"/>
+          <img src={channellogo?channellogo.url:null} alt="logo"/>
         </div>
         <div className="right">
           <span className="title">{videos.snippet.title}<br></br></span>

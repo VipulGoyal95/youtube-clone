@@ -2,16 +2,16 @@
 
 .sidebar{
     background-color: $background-secondary;
-    width: 250px;
+    width: 20vw;
     height: 90vh;
     display: flex;
     flex-direction: column;
     padding: 1rem;
     transition: transform 0.2s ease-in;
     position: sticky;
-    top: 11vh;
+    top: 0;
     left: 0;
-    z-index: 2000;
+    z-index: 999;
     li{
         display: flex;
         list-style: none;
@@ -66,7 +66,7 @@
     .sidebar{
         transform: translateX(-100%);
         z-index: 2000;
-        position: fixed;
+        // position: fixed;
         z-index: 999;
     }
 }

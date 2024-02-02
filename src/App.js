@@ -3,17 +3,14 @@ import Login from "./screens/login/login"
 import "./app.scss";
 import { Route,Routes,Navigate, useNavigate} from "react-router-dom";
 import Homescreen from "./screens/homescreens/homescreen";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {useEffect } from "react";
 import Layout from "./layout"; 
-import { getPopularvideo } from "./redux/slice/videoSlice";
 
 
 function App() {
   const {accessToken,loading} =useSelector(state=>state.user);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  dispatch(getPopularvideo());
   
   useEffect(()=>{
     if(!accessToken && !loading){

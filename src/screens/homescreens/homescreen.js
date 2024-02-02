@@ -1,26 +1,58 @@
-import React from 'react'
-import Container from 'react-bootstrap/esm/Container'
+import React, { useEffect } from 'react'
+// import Container from 'react-bootstrap/esm/Container'
 import CategoriesBar from "../../components/categoriesbar/CategoriesBar";
 import Video from "../../components/video/Video";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import "./homescreen.scss";
-import { useSelector } from 'react-redux';
-const Homescreen = () => {
-  const video = useSelector(state=> state.video.videos);
-  return (
-    <Container fluid className="outer-container">
-        <CategoriesBar/>
-        <Row>
-        {
-            video.map((video)=>
-            (<Col lg={4} md={6} sm={6} className="video" key={video.id}>
-            <Video videos={video} />
-            </Col>)
-        )}
-        </Row>
+import { useDispatch, useSelector } from 'react-redux';
+import { getPopularvideo, getsearchVideo } from '../../redux/slice/videoSlice';
 
-    </Container>
+const Homescreen = () => {
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch(getPopularvideo());
+  },[dispatch])
+
+  const {videos,category} = useSelector(state=> state.video);
+
+  const fetchdata=()=>{
+    console.log("hello");
+    if(category==="All"){
+      dispatch(getPopularvideo());
+    }
+    else{
+      dispatch(getsearchVideo(category));
+    }
+  }
+
+  console.log(document.documentElement.scrollHeight);
+
+  return (
+    <div className="outer-container">
+        <CategoriesBar/>
+        <InfiniteScroll 
+        dataLength={videos.length}
+        next={fetchdata}
+        hasMore={true}
+        // height={"89vw"}
+        loader={
+          <div className="spinner-border text-danger d-block mx-auto"></div>
+        }
+        >
+          <div className="rows">
+            {
+                videos.map((video)=>
+                (<div className="col" key={typeof video.id==='object' && video.id?video.id.videoId: (video.id)}>
+                <Video videos={video} />
+                </div>)
+            )}
+          </div>
+        </InfiniteScroll>
+
+    </div>
   )
 }
 

@@ -4,7 +4,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { FaBars } from "react-icons/fa";
 import { MdApps } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
-import icon from "./youtube-icon.png";
+// import icon from "./youtube-icon.png";
 import { useSelector } from 'react-redux';
 
 const Navbar = (props) => {
@@ -12,9 +12,9 @@ const Navbar = (props) => {
   const profile = useSelector(state=> state.user.user);
   
   return (
-    <div className="header border border-dark">
+    <div className="header">
      <FaBars className="header -menu" size={20} onClick={props.setSidebar} />
-     <img src={icon} className="header -icon" alt=""/>
+     <img src="http://pngimg.com/uploads/youtube/youtube_PNG2.png" className="header -icon" alt=""/>
 
      <form>
       <input type="text" className="header -search" placeholder="Search" />

@@ -3,20 +3,24 @@
 .app-container{
     display: flex;
     height: 90vh;
+    position: absolute;
+    width: 100vw;
+    top: 10vh;
+    // overflow-y: scroll;
 }
 
-.main-container{
-    overflow-y: scroll;
-}
+// .main-container{
+//     overflow-y: scroll;
+// }
 
-@media (max-width:$breakpoint-medium){
-    .main-container{
-        width: 90%;
-    }
-}
+// @media (max-width:$breakpoint-medium){
+//     .main-container{
+//         width: 90%;
+//     }
+// }
 
-@media (max-width:$breakpoint-small){
-    .main-container{
-        width: 100%;
-    }
-}
+// @media (max-width:$breakpoint-small){
+//     .main-container{
+//         width: 100%;
+//     }
+// }

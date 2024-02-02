@@ -2,7 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 
 import request from "../../api";
 
-export const getPopularvideo =createAsyncThunk("popularVideo", async()=>{
+export const getPopularvideo =createAsyncThunk("popularVideo", async(keyword,state)=>{
     try {
         const response = await request.get("/videos",{
             params: {
@@ -10,7 +10,7 @@ export const getPopularvideo =createAsyncThunk("popularVideo", async()=>{
                 chart:"mostPopular",
                 regionCode: "IN",
                 maxResults: 20,
-                pageToken: '',
+                pageToken: state.nextPageToken,
             }
         });
         console.log(response);
@@ -20,6 +20,27 @@ export const getPopularvideo =createAsyncThunk("popularVideo", async()=>{
     }
 })
 
+var category="All";
+export const getsearchVideo = createAsyncThunk("searchvideo", async(keyword,state)=>{
+    try {
+        const response = await request.get("/search",{
+            params:{
+                part:"snippet",
+                q:keyword,
+                type:"video",
+                maxResults:20,
+                pageToken:state.nextPageToken
+            }
+        })
+        console.log(state.nextPageToken);
+        category=keyword;
+        console.log(response);
+        // console.log(category);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 export const videoSlice = createSlice({
@@ -28,17 +49,34 @@ export const videoSlice = createSlice({
         videos: [],
         nextPageToken:null,
         loading:false,
+        category:"All"
     },
     extraReducers:(builder)=>{
         builder.addCase(getPopularvideo.fulfilled,(state,action)=>{
-            state.videos=action.payload.data.items;
+            // console.log(_videos.length);
+            const _videos = action.payload.data.items;
+            state.videos = state.category===category? [...state.videos,..._videos]: _videos;
             state.nextPageToken=action.payload.data.nextPageToken;
             state.loading=false;
+            state.category=category;
         })
         builder.addCase(getPopularvideo.pending,(state)=>{
             state.loading=true;
         })
         builder.addCase(getPopularvideo.rejected,(state)=>{
+            state.loading=false;
+        })
+        builder.addCase(getsearchVideo.fulfilled,(state,action)=>{
+            const _videos = action.payload.data.items;
+            state.videos = state.category===category? [...state.videos,..._videos]: _videos;
+            state.nextPageToken=action.payload.data.nextPageToken;
+            state.loading=false;
+            state.category=category;
+        })
+        builder.addCase(getsearchVideo.pending,(state)=>{
+            state.loading=true;
+        })
+        builder.addCase(getsearchVideo.rejected,(state)=>{
             state.loading=false;
         })
     }

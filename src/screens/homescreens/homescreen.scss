@@ -1,0 +1,42 @@
+@import "../../index.scss";
+
+.outer-container{
+    position: absolute;
+    top: 0;
+    left: 18vw;
+    width: 81%;
+    .rows{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        .col{
+            margin: 0 5px;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-medium){
+    .outer-container{
+        left: 13vw;
+        width: 85%;
+        .rows{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 700px){
+    .outer-container{
+        left: 17vw;
+        width: 81%;
+        .rows{
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-small){
+    .outer-container{
+        left: 3vw;
+        width: 96%;
+    }
+}

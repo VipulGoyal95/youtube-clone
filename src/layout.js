@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./app.scss";
 import Navbar from "./components/header/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
+import { Container } from "react-bootstrap";
 
 const Layout =({Screen}) =>{
     const [showSidebar, setSidebar]= useState(false);
@@ -14,9 +15,9 @@ const Layout =({Screen}) =>{
         <Navbar setSidebar={handletoggle}/>
         <div className="app-container">
           <Sidebar showsidebar={showSidebar} setSidebar={handletoggle} />
-          <div className="main-container">
+          <Container fluid className="main-container">
             {Screen}
-          </div>
+          </Container>
         </div>
       </>
     )
