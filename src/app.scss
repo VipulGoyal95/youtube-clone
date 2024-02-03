@@ -1,12 +1,12 @@
 @import "./index.scss";
 
-.app-container{
-    display: flex;
-    height: 90vh;
-    position: absolute;
-    width: 100vw;
-    top: 10vh;
-    // overflow-y: scroll;
+.app-container {
+  display: flex;
+  height: 90vh;
+  position: absolute;
+  width: 100vw;
+  top: 10vh;
+  overflow-y: scroll;
 }
 
 // .main-container{

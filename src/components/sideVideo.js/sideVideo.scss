@@ -1,0 +1,33 @@
+@import "../../index.scss";
+
+.video-box {
+  display: flex;
+  margin: 3px 0;
+  cursor: pointer;
+  img {
+    width: 30%;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    .title {
+      color: white;
+      padding: 2px;
+      font-size: 15px;
+      @include line-clamp(2);
+    }
+    .channel-name {
+      font-size: 12px;
+    }
+    div {
+      display: flex;
+      span {
+        margin-right: 8px;
+        font-size: 11px;
+      }
+    }
+  }
+}
