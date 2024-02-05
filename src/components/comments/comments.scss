@@ -1,0 +1,50 @@
+.comments {
+  margin-top: 20px;
+  p {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  &__form {
+    align-items: center;
+    gap: 30px;
+    .profile-photo {
+      width: 50px;
+      border-radius: 50%;
+    }
+    form {
+      input {
+        background-color: transparent;
+        border-width: 0 0 1px 0;
+        color: white;
+        height: 30px;
+        margin-right: 20px;
+        &:focus {
+          outline: none;
+          border-color: white;
+        }
+      }
+      button {
+        border-radius: 18px;
+        height: 38px;
+        padding: 0 14px;
+        font-weight: 600;
+        background-color: rgb(34, 184, 184);
+        &:hover {
+          background-color: rgb(132, 244, 244);
+        }
+      }
+    }
+  }
+  // &__list {
+  //   margin: 20px 0;
+  //   padding: 0;
+  // }
+}
+
+@media (max-width: 1016px) {
+  .comments {
+    position: absolute;
+    top: 280%;
+    width: 100%;
+  }
+}

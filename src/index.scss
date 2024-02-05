@@ -1,34 +1,35 @@
 $text-color: #b1bdb4;
 
-$background-primary : #16181b;
-$background-secondary : #121417;
-$border-color : #4c4c4c;
+$background-primary: #16181b;
+$background-secondary: #121417;
+$border-color: #4c4c4c;
 
-$breakpoint-medium : 1224px;
-$breakpoint-small: 520px; 
+$breakpoint-medium: 1224px;
+$breakpoint-small: 520px;
 
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: $background-primary;
-    background-attachment: fixed;
-    color: $text-color;
-    font-family: "Montserrat","sans-serif";
-    font-weight: 600;
+body {
+  background-color: $background-primary;
+  background-attachment: fixed;
+  color: $text-color;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 600;
+  // overflow-y: scroll;
 }
 
-::-webkit-scrollbar{
-    width: 0px;
-    scrollbar-width: 2px;
+::-webkit-scrollbar {
+  width: 0px;
+  scrollbar-width: 2px;
 }
 
 @mixin line-clamp($number) {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: $number;
-    -webkit-box-orient: vertical;
- }
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $number;
+  -webkit-box-orient: vertical;
+}

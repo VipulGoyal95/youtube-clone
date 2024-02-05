@@ -1,1 +1,8 @@
 GET https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAIiCXSBkOWJ-TvneMNeTVcKFtBal7wg1s&part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=IN&maxResults=20&pageToken=
+
+###
+
+GET https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAIiCXSBkOWJ-TvneMNeTVcKFtBal7wg1s&part=snippet,statistics&id=nirn1jVIi1s
+
+###
+GET https://www.googleapis.com/youtube/v3/channels?key=AIzaSyAIiCXSBkOWJ-TvneMNeTVcKFtBal7wg1s&part=snippet,statistics&id=UC4aTcVTewbHtLeV8eK3enwA

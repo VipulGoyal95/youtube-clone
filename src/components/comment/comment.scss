@@ -1,0 +1,23 @@
+.comment-container {
+  display: flex;
+  margin: 20px 0;
+  gap: 15px;
+  img {
+    width: 50px;
+    border-radius: 50%;
+  }
+  .info {
+    div {
+      span {
+        font-size: 12px;
+      }
+      .ch-name {
+        color: white;
+        margin-right: 5px;
+      }
+    }
+    .text {
+      color: white;
+    }
+  }
+}
