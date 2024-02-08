@@ -34,13 +34,6 @@ const category = [
   "jwt",
 ];
 
-const smallcategory = () => [
-  "ALL",
-  "From MR. INDIAN HACKER",
-  "For You",
-  "Recently Uploaded",
-  "Watched"
-];
 
 const CategoriesBar = () => {
   const [activeElement, setActivelement] = useState("All");
@@ -70,27 +63,6 @@ const CategoriesBar = () => {
   );
 };
 
-export const SmallcategoryBar = ()=>{
-  const [activeElement2, setActivelement2] =useState('All');
-
-  const handleclick2=(value)=>{
-    setActivelement2(value);
-  }
-
-  return (
-    <div className="categories-bar">
-      {smallcategory.map((value, i) => (
-        <span
-          key={i}
-          className={activeElement2 === value? "active-cat" : ""}
-          onClick={() => handleclick2(value)}
-        >
-          {value}
-        </span>
-      ))}
-    </div>
-  )
-}
 
 
 

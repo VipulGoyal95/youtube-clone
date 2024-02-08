@@ -1,18 +1,23 @@
 import React from "react";
 import "./comment.scss";
-const Comment = () => {
+import moment from "moment";
+const Comment = ({ comment: snippet }) => {
+  console.log(snippet.snippet.topLevelComment);
+  const { textDisplay, authorProfileImageUrl, authorDisplayName, publishedAt } =
+    snippet.snippet.topLevelComment.snippet;
   return (
     <div className="comment-container">
-      <img
-        src="https://static.vecteezy.com/system/resources/previews/002/002/403/non_2x/man-with-beard-avatar-character-isolated-icon-free-vector.jpg"
-        alt="profile"
-      />
+      <img src={authorProfileImageUrl} alt="profile" />
       <div className="info">
         <div>
-          <span className="ch-name">Vipul Goyal</span>
-          <span className="list__info__time">2year ago</span>
+          <span className="ch-name">{authorDisplayName}</span>
+          <span className="list__info__time">
+            {moment(publishedAt).fromNow() === "a day ago"
+              ? "1 day ago"
+              : moment(publishedAt).fromNow()}
+          </span>
         </div>
-        <div className="text">Nice Video dude</div>
+        <div className="text">{textDisplay}</div>
       </div>
     </div>
   );

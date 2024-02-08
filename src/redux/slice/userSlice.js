@@ -17,13 +17,13 @@ import { signInWithPopup } from "firebase/auth";
 export const loginuser = createAsyncThunk("loginuser", async()=>{
     try{ 
         const res = await signInWithPopup(auth,provider);
-        console.log(res);
-        sessionStorage.setItem("yt-access-token",res.user.accessToken);
+        sessionStorage.setItem("yt-access-token",res._tokenResponse.oauthAccessToken);
         const profile ={
             displayName: res.user.displayName,
             email: res.user.email,
             photoURL: res.user.photoURL
         }
+        console.log(res);
         sessionStorage.setItem("yt-user",JSON.stringify(profile));
         return res;
     }catch(err){
@@ -80,7 +80,7 @@ export const userSlice = createSlice({
         })
         builder.addCase(loginuser.fulfilled, (state, action) => {
             state.loading = false
-            state.accessToken = action.payload.user.accessToken
+            state.accessToken = action.payload._tokenResponse.oauthAccessToken
             const profile ={
                 displayName: action.payload.user.displayName,
                 email: action.payload.user.email,

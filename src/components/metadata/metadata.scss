@@ -53,6 +53,16 @@
         background-color: rgb(172, 171, 171);
       }
     }
+    .subscribed-btn {
+      font-weight: 600;
+      border-radius: 18px;
+      padding: 0 13px;
+      height: 38px;
+      font-size: 15px;
+      border: 0;
+      background-color: rgba(237, 226, 226, 0.219);
+      color: white;
+    }
   }
 
   &__right {
@@ -148,14 +158,14 @@
   color: white;
   padding: 10px 15px;
   border-radius: 15px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   background-color: rgba(255, 255, 255, 0.1);
   flex-wrap: pre-wrap;
 
   div {
     display: flex;
     flex-direction: row;
-    font-weight: 600;
+    font-weight: 500;
     span {
       margin-right: 15px;
     }
@@ -163,11 +173,21 @@
   .discription-area-hide {
     white-space: pre-line;
     @include line-clamp(3);
+    a {
+      text-decoration: none;
+      font-weight: 400;
+      color: rgb(0, 174, 255);
+    }
   }
 
   .discription-area-show {
     white-space: pre-line;
     display: block;
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      color: rgb(0, 174, 255);
+    }
   }
   .show-handler {
     cursor: pointer;

@@ -29,7 +29,7 @@ const Homescreen = () => {
     }
   };
 
-  console.log(document.documentElement.scrollHeight);
+  // console.log(document.documentElement.scrollHeight);
 
   return (
     <div className="outer-container">

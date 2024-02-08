@@ -1,17 +1,17 @@
 @import "./index.scss";
 
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .app-container {
   display: flex;
-  height: 90vh;
   position: absolute;
   width: 100vw;
   top: 10vh;
-  overflow-y: scroll;
+  // overflow-y: auto;
 }
-
-// .main-container{
-//     overflow-y: scroll;
-// }
 
 // @media (max-width:$breakpoint-medium){
 //     .main-container{

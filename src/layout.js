@@ -11,7 +11,7 @@ const Layout =({Screen}) =>{
     }
   
     return(
-      <>
+      <div className="app">
         <Navbar setSidebar={handletoggle}/>
         <div className="app-container">
           <Sidebar showsidebar={showSidebar} setSidebar={handletoggle} />
@@ -19,7 +19,7 @@ const Layout =({Screen}) =>{
             {Screen}
           </Container>
         </div>
-      </>
+      </div>
     )
 }
 
