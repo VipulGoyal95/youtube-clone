@@ -2,7 +2,7 @@ import React from "react";
 import "./comment.scss";
 import moment from "moment";
 const Comment = ({ comment: snippet }) => {
-  console.log(snippet.snippet.topLevelComment);
+  // console.log(snippet.snippet.topLevelComment);
   const { textDisplay, authorProfileImageUrl, authorDisplayName, publishedAt } =
     snippet.snippet.topLevelComment.snippet;
   return (

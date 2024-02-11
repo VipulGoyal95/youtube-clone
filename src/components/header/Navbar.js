@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./navbar.scss";
 import { IoIosNotifications } from "react-icons/io";
 import { FaBars } from "react-icons/fa";
@@ -10,14 +10,21 @@ import { useSelector } from 'react-redux';
 const Navbar = (props) => {
 
   const profile = useSelector(state=> state.user.user);
+  const [input,setInput]=useState();
   
+  const handlesubmit=(e)=>{
+    e.preventDefault();
+    if(input){
+      
+    }
+  }
   return (
     <div className="header">
      <FaBars className="header -menu" size={20} onClick={props.setSidebar} />
      <img src="http://pngimg.com/uploads/youtube/youtube_PNG2.png" className="header -icon" alt=""/>
 
-     <form>
-      <input type="text" className="header -search" placeholder="Search" />
+     <form onSubmit={handlesubmit}>
+      <input type="text" className="header -search" placeholder="Search" onChange={(e)=>setInput(e.target.value)}/>
       <button type="submit">
         <FaSearch size={22} className='search-icon' />
       </button>

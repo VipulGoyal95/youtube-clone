@@ -32,7 +32,7 @@ export const getSubscriptiondetails =
           Authorization: `Bearer ${getState().user.accessToken}`,
         },
       });
-      console.log(res);
+      // console.log(res);
       const values = {
         id: res.data.items.length !== 0 ? res.data.items[0].id : null,
         status: res.data.items.length !== 0,

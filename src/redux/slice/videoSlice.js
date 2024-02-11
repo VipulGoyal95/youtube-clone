@@ -51,6 +51,8 @@ export const getsearchVideo = createAsyncThunk(
   }
 );
 
+
+
 export const videoSlice = createSlice({
   name: "video",
   initialState: {
@@ -89,6 +91,7 @@ export const videoSlice = createSlice({
     builder.addCase(getsearchVideo.rejected, (state) => {
       state.loading = false;
     });
+    
   },
 });
 

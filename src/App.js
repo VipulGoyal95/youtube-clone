@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Layout from "./layout";
 import Watchscreen from "./screens/watchscreen/watchscreen";
+import Searchscreen from "./screens/searchscreen/searchscreen";
 
 function App() {
   const { accessToken, loading } = useSelector((state) => state.user);
@@ -24,6 +25,7 @@ function App() {
       <Route path="/auth" element={<Login />} />
       <Route path="*" element={<Navigate to="/" />} />
       <Route path="/watch/:id" element={<Layout Screen={<Watchscreen />} />} />
+      <Route path="/search/:input" element={<Layout Screen={<Searchscreen />} />} />
     </Routes>
   );
 }

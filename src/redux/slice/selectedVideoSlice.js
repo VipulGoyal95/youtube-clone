@@ -9,7 +9,7 @@ export const getselecteVideo = createAsyncThunk("selecteVideo", async (id) => {
         id: id,
       },
     });
-    // console.log(req);
+    console.log(req);
     return req;
   } catch (error) {
     console.log(error);

@@ -1,17 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./sideVideo.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import moment from "moment";
 import numeral from "numeral";
+import request from "../../api";
+import { useNavigate } from "react-router-dom";
 
-const SideVideo = () => {
-  const seconds = moment.duration("100").asSeconds();
+const SideVideo = ({ video }) => {
+  const [views, setViews] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const {
+    snippet: { thumbnails, channelTitle, publishedAt, title },
+    id: { videoId },
+  } = video;
+  const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getVideoDetails = async () => {
+      try {
+        const {
+          data: { items },
+        } = await request.get("/videos", {
+          params: {
+            part: "contentDetails,statistics",
+            id: videoId,
+          },
+        });
+        // console.log(items[0].statistics);
+        setViews(items[0].statistics.viewCount);
+        setDuration(items[0].contentDetails.duration);
+        // console.log(items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getVideoDetails();
+  }, [videoId]);
+
+  const handleVideo=()=>{
+    navigate("/watch/"+videoId);
+  }
   return (
-    <div className="video-box">
+    <div className="video-box" onClick={handleVideo}>
       <div className="image-container">
         <LazyLoadImage
-          src="https://i.ytimg.com/vi/C6R6cbWeuow/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLBEgoJ9DXGxngyO5hjn8MxxnuLA7w"
+          src={thumbnails.medium.url}
           effect="blur"
           alt="thumbail"
         />
@@ -19,16 +55,16 @@ const SideVideo = () => {
       </div>
       <div className="info">
         <span className="title">
-          Testing Samsung S24 Ultra...Will it Survive?
+          {title}
         </span>
-        <span className="channel-name">MR.INDIAN HACKER</span>
+        <span className="channel-name">{channelTitle}</span>
         <div>
-          <span>{numeral("10000000").format("0.a")} views</span>
+          <span>{numeral(views).format("0.a")} views</span>
           <span>
             •
-            {moment("02-04-2024").fromNow() === "a day ago"
+            {moment(publishedAt).fromNow() === "a day ago"
               ? "1 day ago"
-              : moment("02-04-2024").fromNow()}
+              : moment(publishedAt).fromNow()}
           </span>
         </div>
       </div>
