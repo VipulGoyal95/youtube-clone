@@ -6,16 +6,18 @@ import { MdApps } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 // import icon from "./youtube-icon.png";
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = (props) => {
 
   const profile = useSelector(state=> state.user.user);
   const [input,setInput]=useState();
-  
+  const navigate = useNavigate();
+
   const handlesubmit=(e)=>{
     e.preventDefault();
     if(input){
-      
+      navigate("/search/"+input);
     }
   }
   return (

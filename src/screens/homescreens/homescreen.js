@@ -9,6 +9,7 @@ import "./homescreen.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getPopularvideo, getsearchVideo } from "../../redux/slice/videoSlice";
 import SkeletonVideo from "../../components/skeleton/skeletonVideo";
+import { addHistoryVideo } from "../../redux/slice/historyVideoSlice";
 
 
 const Homescreen = () => {
@@ -30,6 +31,9 @@ const Homescreen = () => {
   };
 
   // console.log(document.documentElement.scrollHeight);
+  const handleClick=(video)=>{
+    dispatch(addHistoryVideo(video));
+  }
 
   return (
     <div className="outer-container">
@@ -54,7 +58,7 @@ const Homescreen = () => {
                       : video.id
                   }
                 >
-                  <Video videos={video} />
+                  <Video videos={video} onClick={(video)=>handleClick(video)}/>
                 </div>
               ))
             : [...Array(20)].map((id) => (

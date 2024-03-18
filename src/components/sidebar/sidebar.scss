@@ -12,6 +12,10 @@
     top: 0;
     left: 0;
     z-index: 999;
+    a{
+        text-decoration: none;
+        color: $text-color;
+    }
     li{
         display: flex;
         list-style: none;

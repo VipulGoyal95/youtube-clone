@@ -23,7 +23,7 @@ const Login = () => {
   
   
   return (
-    <div className="main-container">
+    <div className="login-outer-container">
       <div className="login-container">
         <img alt="logo" src={icon} />
         <button onClick={handlelogin}>Login with google</button>

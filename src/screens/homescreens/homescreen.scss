@@ -3,7 +3,7 @@
 .outer-container{
     position: absolute;
     top: 0;
-    left: 18vw;
+    // left: 18vw;
     width: 81%;
     .rows{
         display: grid;
@@ -16,7 +16,7 @@
 
 @media (max-width: $breakpoint-medium){
     .outer-container{
-        left: 11vw;
+        // left: 11vw;
         width: 87%;
         .rows{
             grid-template-columns: 1fr 1fr;

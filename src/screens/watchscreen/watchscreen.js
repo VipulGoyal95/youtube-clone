@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./watchscreen.scss";
 
-import SideVideo from "../../components/sideVideo.js/sideVideo";
+import SideVideo from "../../components/sideVideo/sideVideo";
 import Metadata from "../../components/metadata/metadata";
 import Comments from "../../components/comments/comments";
 import { useParams } from "react-router-dom";

@@ -1,0 +1,53 @@
+.all-video-container {
+    cursor: pointer;
+    display: flex;
+    width: 94%;
+    margin: 7px 0;
+    .image {
+      width: 35%;
+      position: relative;
+      margin-right: 15px;
+      .thumbnail-photo {
+        width: 100%;
+        border-radius: 10px;
+      }
+      span {
+        position: absolute;
+        bottom: 0.3rem;
+        right: 0.3rem;
+        background-color: #080808ec;
+        padding: 0.1rem 0.3rem;
+        font-size: 0.7rem;
+        border-radius: 5px;
+      }
+    }
+    .details {
+      width: 65%;
+      span {
+        // color: white;
+      }
+      .video-data {
+        span {
+          font-size: 12px;
+          margin-right: 5px;
+        }
+      }
+      .channel-data {
+        margin: 10px 0;
+        .channel-icon {
+          width: 30px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+      }
+      .short-description {
+        margin-top: 20px;
+        font-size: 12px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+  
