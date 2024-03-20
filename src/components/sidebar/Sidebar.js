@@ -38,10 +38,12 @@ const Sidebar = (props) => {
         </li>
       </Link>
 
-      <li>
-        <AiFillLike size={23} />
-        <h6>Liked Video</h6>
-      </li>
+      <Link to="/likedvideo">
+        <li>
+          <AiFillLike size={23} />
+          <h6>Liked Video</h6>
+        </li>
+      </Link>
 
       <li onClick={handlehistory}>
         <FaClockRotateLeft size={23} />
