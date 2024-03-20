@@ -9,6 +9,7 @@ import sidevideoReducer from "../slice/sidevideo";
 import searchVideoReducer from "../slice/searchSlice";
 import historyVideoReducer from "../slice/historyVideoSlice";
 import subscribedchannelReducer from "../slice/subscribedchannelSlice";
+import likedvideoReducer from "../slice/likedvideoSlice";
 const store = configureStore({
   reducer: {
     video: videoReducer,
@@ -20,6 +21,7 @@ const store = configureStore({
     searchVideo: searchVideoReducer,
     historyVideo: historyVideoReducer,
     subscribedchannel: subscribedchannelReducer,
+    likedVideo:likedvideoReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
