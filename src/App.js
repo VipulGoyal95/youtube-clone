@@ -17,11 +17,11 @@ function App() {
   const { accessToken, loading } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if(!accessToken && !loading){
-      navigate("/auth");
-    }
-  },[accessToken,loading,navigate]);
+  // useEffect(()=>{
+  //   if(!accessToken && !loading){
+  //     navigate("/auth");
+  //   }
+  // },[accessToken,loading,navigate]);
   
   return (
     <Routes>
