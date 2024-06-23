@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAIiCXSBkOWJ-TvneMNeTVcKFtBal7wg1s",
-  authDomain: "yt-clone-9520.firebaseapp.com",
-  projectId: "yt-clone-9520",
-  storageBucket: "yt-clone-9520.appspot.com",
-  messagingSenderId: "684846770178",
-  appId: "1:684846770178:web:7753ba157bfb1713839f1b",
+  apiKey: "AIzaSyAPdk5Mqqyvf5ycvXL49tToxWgqdya4EvE",
+  authDomain: "yt-clone-8837b.firebaseapp.com",
+  projectId: "yt-clone-8837b",
+  storageBucket: "yt-clone-8837b.appspot.com",
+  messagingSenderId: "958083838156",
+  appId: "1:958083838156:web:2f4389c58c80215d729269"
 };
 
 const app = initializeApp(firebaseConfig);
